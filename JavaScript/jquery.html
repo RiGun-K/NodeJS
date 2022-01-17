@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <button>마우스를 클릭해 보세요!</button>
+    <p id="text"></p>
+
+    <script>
+        $(function() {
+            $("button").one("click", function() {
+                $("#text").append("첫 번째 클릭이에요!</br>");
+                $(this).click(function() {
+                    $("#text").append("이 버튼을 벌써 클릭했네요!<br>");
+                });
+            });
+        });
+    </script>
+</body>
+</html>

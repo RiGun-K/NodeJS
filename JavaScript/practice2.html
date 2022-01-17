@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript" src="practice2.js"></script>
+</head>
+<body>
+    <!-- 내부 속성값에 큰 따옴표("")사용 금지 !  -->
+    <input value="누르지 마시오." onclick="alert('누르지 말라니깐...')" type="button"/>
+    <br>
+    <!-- ${}사용 할경우 (`) 사용 할 것 ! -->
+    <script>
+        function countRabbits() {
+            for(let i=1; i<=3; i++) {
+                alert(`토끼 ${i}마리`);
+            }
+        }
+    </script>
+    <input type="button" onclick="countRabbits()" value="토끼를 세봅시다!"/>
+
+    <!-- element.addEventListener(event, handler, [options]); 
+        event = 이벤트 이름 (예: "click" )
+        handler = 핸들러 함수 
+        options = 아래 프로퍼티를 갖는 객체 
+    -->
+    <input id="elem" type="button" value="이벤트 핸들러 함수"/>
+    <script>
+        function handler1() {
+            alert('감사합니다');
+        };
+        function handler2() {
+            alert('다시 한 번 감사합니다!');
+        }
+        
+        elem.onclick = () => alert("안녕하세요");
+        elem.addEventListener("click", handler1);
+        elem.addEventListener("click", handler2);
+    </script>
+</body>
+</html>
