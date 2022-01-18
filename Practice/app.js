@@ -4,6 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
+// 라우터 선언 (해당되는 각 js에)
 var indexRouter = require('./routes/index');
 var classesRouter = require('./routes/classes');
 var teachersRouter = require('./routes/teachers');
@@ -21,6 +22,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+// 주소지정 , 라우터 지정
 app.use('/', indexRouter);
 app.use('/classes', classesRouter);
 app.use('/teachers', teachersRouter);
