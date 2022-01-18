@@ -1,0 +1,17 @@
+extends layout
+
+block content
+  h1 수업 리스트
+  table 
+    thead 
+        tr 
+            td 수업번호
+            td 과목
+            td 선생님
+    tbody 
+        each c in classes 
+            tr 
+                td
+                    a(href=`/classes/${c.classId}`) #{c.classId}
+                td=c.classTitle
+                td=c.teacher

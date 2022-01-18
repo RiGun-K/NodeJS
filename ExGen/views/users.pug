@@ -1,0 +1,9 @@
+extends layout 
+
+block content 
+    h1 Iteration 
+    each message in messages 
+        p=message 
+    ul 
+        each user in users 
+            li #{user.userId} - #{user.name}
