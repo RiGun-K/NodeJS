@@ -12,6 +12,10 @@ var http = require('http');
  * Get port from environment and store in Express.
  */
 
+// db와 sql 설정
+const db = require('../models/sqlite/db');
+const sql = require('../models/sqlite/todo-sql');
+
 var port = normalizePort(process.env.PORT || '3000');
 app.set('port', port);
 
@@ -28,6 +32,10 @@ var server = http.createServer(app);
 server.listen(port);
 server.on('error', onError);
 server.on('listening', onListening);
+
+// db 테이블 설정 (SQLite)
+db.executeUpdate(sql.createTodoTable());
+
 
 /**
  * Normalize a port into a number, string, or false.
