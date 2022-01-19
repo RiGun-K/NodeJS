@@ -5,3 +5,4 @@ const app = require('./app');
 const server = http.createServer(app);  // 파라미터로 넘겨준다 (app)
 const port=3000;
 server.listen(port);
+
