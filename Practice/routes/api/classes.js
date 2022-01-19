@@ -3,15 +3,14 @@ var router = express.Router();
 
 // 전역변수로 만드는것이 편함
 const classes = [
-    {classId:'1', classTitle:'C', teacher:'ABC', max:10, },
+    {classId:'1', classTitle:'C', teacher:'ABC'},
     {classId:'2', classTitle:'JAVA', teacher:'ABCD'},
     {classId:'3', classTitle:'NODE', teacher:'ABCDE'}
   ];
 
-  router.get('/', function(req, res, next) {
+router.get('/', function(req, res, next) {
     res.json(classes);
-  });
-
+});
 
 router.post('/', (req,res)=>{
     const {classId, studentId} = req.body;
@@ -31,4 +30,4 @@ router.post('/', (req,res)=>{
 
 // api는 렌더링이 필요없어서 pug가 필요 없음.  json 형식으로 전달 
   
-  module.exports = router;
+module.exports = router;

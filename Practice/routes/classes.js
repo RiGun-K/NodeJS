@@ -5,12 +5,12 @@ var router = express.Router();
 
 // 전역변수로 만드는것이 편함
 const classes = [
-  {classId:'1', classTitle:'C', teacher:'ABC', max:10, num:0},
-  {classId:'2', classTitle:'JAVA', teacher:'ABCD', max:8, num:3},
-  {classId:'3', classTitle:'NODE', teacher:'ABCDE', max:4, num:2}
+  {classId:'1', classTitle:'Vue', teacher:'김리건', max:10, num:0},
+  {classId:'2', classTitle:'Java', teacher:'강병석', max:8, num:3},
+  {classId:'3', classTitle:'Node', teacher:'노윤호', max:4, num:2}
 ]
 
-router.get('/', function(req, res, next) {
+router.get('/', function(req, res) {
   res.render('classes', {classes:classes});
 });
   
