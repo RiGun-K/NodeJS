@@ -1,4 +1,4 @@
-const expree = require('express');
+const express = require('express');
 const router = express.Router();
 
 // 할 일 리스트 조회
@@ -7,7 +7,7 @@ router.get('/', (req, res)=>{
         {todoId:1, job:'JS Study'},
         {todoId:2, job:'Workout'}
     ];
-    req.json(todos);
+    res.json(todos);
 });
 
 // 할 일 추가
@@ -21,4 +21,5 @@ router.delete('/:todoId', (req, res)=>{
     const todoId = req.params.todoId;
     res.json({result:'ok'});
 });
+
 module.exports=router;
