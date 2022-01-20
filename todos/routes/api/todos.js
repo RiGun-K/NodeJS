@@ -15,7 +15,7 @@ router.post('/', async (req, res)=>{
     const {job} = req.body;
     const result = await tododb.insertTodo(job);
     console.log(result);
-    if(result) res.json({result:'등록 되었습니다.'});
+    if(result && result.affectedRows==1) res.json({result:'등록 되었습니다.'});
     else res.json({result:'등록 실패하였습니다.'});
 });
 
@@ -24,7 +24,7 @@ router.delete('/:todoId', async (req, res)=>{
     const todoId = req.params.todoId;
     const result = await tododb.deleteTodo(todoId);
     console.log(result);
-    if(result) res.json({result:'삭제 되었습니다.'});
+    if(result && result.affectedRows==1) res.json({result:'삭제 되었습니다.'});
     else res.json({result:'삭제가 실패했습니다.'});
 });
 
