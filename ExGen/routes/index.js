@@ -1,4 +1,5 @@
 var express = require('express');
+const app = require('../../ExGen/app');
 var router = express.Router();
 
 /* GET home page. */
@@ -6,6 +7,6 @@ var router = express.Router();
 // localhost:3000 실행하면 index.pug 띄워주기
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Hi Express' });  // render = 뷰 템플릿 반환 , title 을 index.pug에 반환 
-});
+}); 
 
 module.exports = router;

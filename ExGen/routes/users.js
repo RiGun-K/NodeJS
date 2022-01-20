@@ -34,6 +34,7 @@ router.get('/', (req, res)=>{
 });
 
 // '/:userId/history/:historyId' 도 가능 ( 사용자 아이디/구매이력/구매번호 )
+// 주소의 일부분으로 전달되는 값을 변수로 받아서 JSON으로 리턴 
 router.get('/:userId', function(req, res) {
   const userId = req.params.userId;
   res.json({message:`Hello ${userId}`});
