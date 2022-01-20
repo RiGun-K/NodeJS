@@ -1,8 +1,21 @@
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 25px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
   color: #00B7FF;
+}
+
+input {
+  width: 300px;
+  height: 30px;
+  border: 3px solid blue;
+  border-radius: 5px;
+  font-size: 25px;
+}
+
+button {
+  width: 80px;
+  height: 30px;
 }

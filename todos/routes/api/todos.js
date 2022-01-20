@@ -16,7 +16,7 @@ router.post('/', async (req, res)=>{
     const result = await tododb.insertTodo(job);
     console.log(result);
     // affectedRows ( DB에 영향을 받은 값의수 )
-    if(result && result.affectedRows==1) res.json({result:'등록 되었습니다.'});
+    if(result && result.affectedRows==1) res.json({result:'정답 입니다!'});
     else res.json({result:'등록 실패하였습니다.'});
 });
 
@@ -29,3 +29,4 @@ router.delete('/:todoId', async (req, res)=>{
     else res.json({result:'삭제가 실패했습니다.'});
 });
 
+module.exports=router;

@@ -9,6 +9,7 @@ var router = express.Router();
 
 
 // 주소가 users 면 hello , user/~~ 면 hello ~~ 출력 
+// query - 주소 또는 Form으로 전달되는 데이터를 얻을 수 있다.
 // router.get('/', (req, res)=> {
 //   const userId = req.query.userId;
 //   if(userId){
