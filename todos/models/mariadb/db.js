@@ -1,5 +1,6 @@
 const mariadb = require('mariadb')
 
+// DB 설정
 const pool = mariadb.createPool({
     host: 'localhost',
     port: 3306,
@@ -9,10 +10,12 @@ const pool = mariadb.createPool({
     connectionLimit: 4
 });
 
+// DB 연결
 const getConnection = async()=>{
     return await pool.getConnection();
 }
 
+// async await 
 exports.executeQuery = async(sql, params)=>{
     let conn, rows=null;
     try{
