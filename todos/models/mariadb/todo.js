@@ -8,6 +8,7 @@ exports.selectTodos = async()=>{
 };
 
 exports.insertTodo = async(job)=>{
+    // values(?) -> [] 배열로 넣어준다 
     const sql = `insert into todo(job) values(?)`;
     return await db.executeQuery(sql, [job]);
 };
@@ -15,4 +16,4 @@ exports.insertTodo = async(job)=>{
 exports.deleteTodo = async(todoId)=>{
     const sql = `delete from todo where todoId=?`;
     return await db.executeQuery(sql, [todoId]);
-}
+};
