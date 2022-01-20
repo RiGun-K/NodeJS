@@ -15,6 +15,7 @@ router.post('/', async (req, res)=>{
     const {job} = req.body;
     const result = await tododb.insertTodo(job);
     console.log(result);
+    // affectedRows ( DB에 영향을 받은 열 )
     if(result && result.affectedRows==1) res.json({result:'등록 되었습니다.'});
     else res.json({result:'등록 실패하였습니다.'});
 });
