@@ -5,7 +5,8 @@ const express = require('express');
 // const Todo = require('../models/sequelize/todoModel');
 
 // 쿼리문 담긴 DB 정보를 가져옴
-const tododb = require('../models/mariadb/todo');
+// const tododb = require('../models/mariadb/todo');
+const Todo = require('../models/sequelize/todoModel');
 
 const router = express.Router();
 
@@ -15,7 +16,8 @@ const router = express.Router();
 // (req 는 todo.js에서 쿼리문 함수 날리는걸 받아오는 것)
 router.get('/', async (req, res)=> {
   // 첫 화면은 DB에 저장된 리스트를 불러와야하기에 selectTodos() 호출
-  const rows = await tododb.selectTodos();
+  // const rows = await tododb.selectTodos();
+  const rows = await Todo.findAll();
   // 'index' 페이지로 리스트 띄워준다, 리스트를 todos로 정의하고 페이지로 보냄
   res.render('index', {todos:rows});
 });

@@ -4,6 +4,8 @@ const router = express.Router();
 // const sql = require('../../models/sqlite/todo-sql');
 const tododb = require('../../models/mariadb/todo');
 
+// 웹에서 이벤트 처리 ajax는 javascript/index.js 에서 설정 
+
 // 할 일 리스트 조회
 router.get('/', async (req, res)=>{
     const rows = await tododb.selectTodos();
@@ -16,7 +18,7 @@ router.post('/', async (req, res)=>{
     const result = await tododb.insertTodo(job);
     console.log(result);
     // affectedRows ( DB에 영향을 받은 값의수 )
-    if(result && result.affectedRows==1) res.json({result:'정답 입니다!'});
+    if(result && result.affectedRows==1) res.json({result:'등록 되었습니다.'});
     else res.json({result:'등록 실패하였습니다.'});
 });
 

@@ -19,3 +19,21 @@ button {
   width: 80px;
   height: 30px;
 }
+
+.bluetop {
+  border-collapse: collapse;
+}
+.bluetop th {
+  padding: 10px;
+  color: #168;
+  border-bottom: 3px solid #168;
+  text-align: left;
+}
+.bluetop td {
+    color: #669;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+.bluetop tr:hover td {
+    color: #004;
+}
