@@ -14,6 +14,7 @@ exports.insertTodo = async(job)=>{
 };
 
 exports.deleteTodo = async(todoId)=>{
+    // ?가 들어가면 파라미터로 [](배열)로 줌
     const sql = `delete from todo where todoId=?`;
     return await db.executeQuery(sql, [todoId]);
 };
