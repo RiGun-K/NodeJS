@@ -1,26 +1,4 @@
 extends layout
 
 block content
-  script(src='/javascripts/index.js') 
-  script(src='/stylesheets/style.css')
-  h1 Todo list 
-  input(id='job' type='text')
-  button(id='save' class='w-btn w-btn-blue') 추가
-  p
-  if todos 
-    table(class="bluetop")
-      thead 
-        tr 
-          td 번호
-          td 할일
-          td 완료
-      tbody(id='todo-body') 
-        each todo in todos 
-          tr 
-            td=todo.studentId 
-            td=todo.name 
-            td 
-              button(id=todo.todoId class='delete-button') 삭제
-  else 
-    p 할 일이 없습니당.
-
+  h1 Welcome to 리건's Class
