@@ -16,7 +16,7 @@ const router = express.Router();
 router.get('/', async (req, res)=> {
   // 첫 화면은 DB에 저장된 리스트를 불러와야하기에 selectTodos() 호출
   const rows = await tododb.selectTodos();
-  // 'index' 페이지로 리스트 띄워준다
+  // 'index' 페이지로 리스트 띄워준다, 리스트를 todos로 정의하고 페이지로 보냄
   res.render('index', {todos:rows});
 });
 
