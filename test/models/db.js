@@ -1,35 +1,19 @@
 const mariadb = require('mariadb')
+const config = require('../configs/db.config')
 
-// const createpool(config)
-
-// DB 설정
-const pool = mariadb.createPool({
-    host: 'localhost',
-    port: 3306,
-    database:'node',
-    user: 'RiGun',
-    password: '4238',
-    connectionLimit: 4
-});
-
-// DB 연결
-const getConnection = async()=>{
-    return await pool.getConnection();
-}
+const pool = mariadb.createpool(config)
 
 // async await 
-exports.executeQuery = async(sql, params)=>{
-    let conn, rows=null;
+exports.query = async(sql, params)=>{
+    let conn, rows;
     try{
-        conn = await getConnection();
-        if(params)
-            rows = await conn.query(sql, params);
-        else 
-            rows = await conn.query(sql);
-    }catch(err) {
-        console.log(err);
-    }finally{
+        conn = await pool.getConnection();
+        rows = await conn.query(sql, params);
+    } catch(error) {
+        return null;
+    } finally{
         if(conn) conn.end();
     }
     return rows;
 }
+
