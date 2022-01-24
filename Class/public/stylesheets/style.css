@@ -1,0 +1,53 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+ul.menu {
+  list-style: none;
+  padding-bottom: 2rem; 
+}
+li.menu {
+  padding-right: 2rem;
+  float:left;
+  font-size:large;
+}
+
+.container {
+  float: none;
+}
+
+input {
+  width: 300px;
+  height: 30px;
+  border: 3px solid blue;
+  border-radius: 5px;
+  font-size: 25px;
+}
+
+button {
+  width: 80px;
+  height: 30px;
+}
+
+.bluetop {
+  border-collapse: collapse;
+}
+.bluetop th {
+  padding: 10px;
+  color: #168;
+  border-bottom: 3px solid #168;
+  text-align: left;
+}
+.bluetop td {
+    color: #669;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+.bluetop tr:hover td {
+    color: #004;
+}

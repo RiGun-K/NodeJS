@@ -1,0 +1,31 @@
+extends layout
+
+block content
+  input(type='text' id='lectureId' placeholder='강의번호') 
+  input(type='text' id='title' placeholder='제목') 
+  input(type='text' id='maxStudent' placeholder='수강/최대 인원') 
+  input(type='text' id='teacherId' placeholder='선생님(이름)') 
+  p
+  button(id='add') 강의추가
+  p
+  table(class="bluetop")
+    thead
+      tr 
+        th 강의번호 
+        th 제목
+        th 수강인원/최대인원 
+        th 선생님(이름)
+        th 
+        th
+    tbody
+      if lectures
+        each l in lectures
+          tr 
+            td=l.lectureId  
+            td=l.title
+            td #{l.enrolled} / #{l.maxStudent}
+            td #{l.teacherId} ( #{l.name} )
+            td
+              a(href=`/lectures/${l.lectureId}`) 자세히
+            td  
+              button(class='delete' id=l.lectureId) Delete
