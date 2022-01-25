@@ -10,7 +10,7 @@ router.get('/signin', (req,res)=>{
 
 // 로그아웃 페이지
 router.get('/signout', (req, res)=>{
-    req.session.destroy((err)=>{
+    req.session.destroy((err)=>{    // 세션을 삭제하고 메인페이지로 이동
         res.redirect('/');
     })
 });

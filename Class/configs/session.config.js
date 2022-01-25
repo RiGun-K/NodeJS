@@ -11,3 +11,5 @@ module.exports={
     resave:false,
     saveUninitialized:false,
 };
+
+// 세션 설정
