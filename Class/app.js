@@ -20,6 +20,9 @@ var apiRouter = require('./routes/api');
 
 var app = express();
 
+// 세션 사용
+app.use(session(sessionConfig));
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
