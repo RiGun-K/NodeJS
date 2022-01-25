@@ -6,8 +6,8 @@ const FileStore = require("session-file-store")(session)
 const fileStoreOptions = {retries: 0};
 
 module.exports={
-    store:new FileStore(fileStoreOptions),
-    secret:'salty salt',
+    store:new FileStore(fileStoreOptions),  // 마리아DB등을 사용시 new mariadb로 변경가능
+    secret:'my session of rigun',
     resave:false,
     saveUninitialized:false,
 };
