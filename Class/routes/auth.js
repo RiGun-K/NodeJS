@@ -5,7 +5,7 @@ const router = express.Router();
 router.get('/signin', (req,res)=>{
     res.render('signin');
 });
-
+// 실제 로그인은 api로 넣는게 편함 
 
 
 

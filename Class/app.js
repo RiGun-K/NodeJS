@@ -39,7 +39,7 @@ app.use('/', indexRouter);
 app.use('/teachers', teachersRouter);
 app.use('/lectures', lecturesRouter);
 app.use('/students', studentsRouter);
-app.use('/auth/signin', authRouter);
+app.use('/auth', authRouter);
 
 app.use('/api', apiRouter);
 //
