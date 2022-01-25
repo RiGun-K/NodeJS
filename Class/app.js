@@ -4,6 +4,11 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
+// 세션 설정
+const session = require('express-session');
+const sessionConfig = require('./configs/session.config');
+//
+
 //
 var indexRouter = require('./routes/index');
 var teachersRouter = require('./routes/teachers');
