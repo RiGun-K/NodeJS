@@ -10,7 +10,15 @@ router.get('/', async (req, res) => {
 });
 
 router.get('/:studentId', async (req, res) => {
-  res.render('student_detail');
+  const students = await studentDB.getStudentById(req.params.studentId);
+  let student, enrollments;
+  if(students && students.length==1){
+    student = students[0];
+    console.log(student);
+    enrollments = await enrollmentDB.getEnrollmentsByStudent(req.params.studentId);
+    console.log(enrollments);
+  }
+  res.render('student_detail', {student:student, enrollments:enrollments});
 });
 
 module.exports = router;

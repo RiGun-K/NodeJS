@@ -10,14 +10,17 @@ block content
   table(class="bluetop")
     thead
       tr 
-        td 학생아이디
-        td 이름
-        td 삭제 
+        th 학생아이디
+        th 이름
+        th
+        th 삭제 
     tbody
       if students
         each s in students 
           tr 
             td=s.studentId  
             td=s.name 
+            td 
+              a(href=`/students/${s.studentId}`) 
             td  
               button(class='delete' id=s.studentId) 삭제
