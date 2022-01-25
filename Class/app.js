@@ -14,6 +14,7 @@ var indexRouter = require('./routes/index');
 var teachersRouter = require('./routes/teachers');
 var lecturesRouter = require('./routes/lectures');
 var studentsRouter = require('./routes/students');
+var authRouter = require('./routes/auth');
 
 var apiRouter = require('./routes/api');
 //
@@ -38,6 +39,7 @@ app.use('/', indexRouter);
 app.use('/teachers', teachersRouter);
 app.use('/lectures', lecturesRouter);
 app.use('/students', studentsRouter);
+app.use('/auth/signin', authRouter);
 
 app.use('/api', apiRouter);
 //
