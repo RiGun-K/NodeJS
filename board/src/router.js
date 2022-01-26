@@ -12,3 +12,5 @@ const router = new VueRouter({
         {path:"/about", component: About}
     ]
 });
+
+export default router;
