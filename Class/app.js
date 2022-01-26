@@ -34,6 +34,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+// 전역변수 (routes/auth.js에서 사용)
+app.set('jwt-secret', 'NodeJSMiniServerSecret');
 //
 app.use('/', indexRouter);
 app.use('/teachers', teachersRouter);

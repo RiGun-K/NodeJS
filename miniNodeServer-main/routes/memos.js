@@ -3,19 +3,22 @@ const router = express.Router();
 const db = require('../models/sqlite-db')
 const sql = require('../models/memo-sql')
 const authMiddleware = require('../middleware/auth');
-const multer = require('multer');
+const multer = require('multer'); // 파일업로드
 const parser = require('body-parser')
 
+// storage - 파일업로드 코드
 const storage  = multer.diskStorage({
+  // destination (저장위치)
   destination(req, file, cb) {
     cb(null, 'public/uploads');
   },
   filename(req, file, cb) {
-    cb(null, `${Date.now()}_${file.originalname}`);
+    cb(null, `${Date.now()}_${file.originalname}`); // Date.now() - 현재 시간
   },
 });
 const upload = multer({ storage: storage });
 
+// 미들웨어를 받아서 
 router.get('/', authMiddleware, function(req, res, next) {
   db.executeQuery(sql.selectAllMemoByUserSql(req.userid), (err, rows)=>{
     if(err){

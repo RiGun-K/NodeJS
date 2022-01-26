@@ -4,6 +4,7 @@ const router = express.Router({mergeParams:true}); //
 const teachers = require('./teachers');
 const lectures = require('./lectures');
 const auth = require('./auth'); 
+const token = require('./token');
 
 // 라우터 선언
 router.use('/teachers', teachers);
