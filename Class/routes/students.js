@@ -3,13 +3,16 @@ const router = express.Router();
 
 const studentDB = require('../models/students');
 
+const auth = require('../middlewares/auth')
+const log = require('../middlewares/log');
+
 /* GET users listing. */
 router.get('/', async (req, res) => {
   const students = await studentDB.getStudents();
   res.render('students', {students:students});
 });
 
-router.get('/:studentId', async (req, res) => {
+router.get('/:studentId', [log, auth], async (req, res) => {
   const students = await studentDB.getStudentById(req.params.studentId);
   let student, enrollments;
   if(students && students.length==1){
