@@ -1,11 +1,12 @@
 const express = require('express');
 const router = express.Router();
 
+const token = require('../../middlewares/token');
 const teacherDB = require('../../models/teachers');
 
 /* GET users listing. */
-router.get('/', async (req, res) => {
-  const result = await teacherDB.getTeachers()
+router.get('/', token, async (req, res) => {  // token 사용
+  const result = await teacherDB.getTeachers();
   res.json(result);
 });
 

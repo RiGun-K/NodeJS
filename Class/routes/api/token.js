@@ -1,8 +1,8 @@
 const express = require('express');
 const router = express.Router();
 
-const jwt = requrie('jsonwebtoken');
-const teacherDB = requrie('../../models/teachers');
+const jwt = require('jsonwebtoken');
+const teacherDB = require('../../models/teachers');
 
 router.post('/signin', async (req, res)=>{
     const {teacherId, password} = req.body;
@@ -11,11 +11,27 @@ router.post('/signin', async (req, res)=>{
     }
     const teacher = await teacherDB.getTeacherById(teacherId);
     console.log(teacher)
-    if(teacher) {
+    if(teacher && teacher.password == password) {
         const secret = req.app.get('jwt-secret');
-        const navload={
-            
-        }
+        const payload={
+            sub: teacher.teacherId,  // 사용자 아이디
+            name: teacher.name,
+            aud: "SecondClass", // receiver
+            iat: Math.floor(Date.now() / 1000), // issued at
+        };
+        const option={
+            algorithm : "HS256",
+            expiresIn : "30m",
+            issuer : "SecondClass"
+        };
+        const result={
+            token : jwt.sign(payload, secret, option),
+            name: teacher.name,
+            teacherId : teacher.teacherId
+        };
+        res.json(result);
+    } else {
+        res.json();
     }
 });
 
