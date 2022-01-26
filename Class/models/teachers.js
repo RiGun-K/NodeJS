@@ -7,7 +7,12 @@ exports.getTeachers = async()=>{
 
 exports.getTeacherById = async(teacherId)=>{
     const sql = 'select * from teacher where teacherId=?';
-    return await db.query(sql, [teacherId]);
+    const list = await db.query(sql, [teacherId]);
+    if(list && list.length==1) {
+        return list[0];
+    } else {
+        return null;
+    }
 };
 
 exports.addTeacher = async(teacher)=>{

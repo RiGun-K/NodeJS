@@ -6,9 +6,10 @@ const lectures = require('./lectures');
 const auth = require('./auth'); 
 const token = require('./token');
 
-// 라우터 선언
+// 라우터 선언 ( 주소 할당 )
 router.use('/teachers', teachers);
 router.use('/lectures', lectures);
 router.use('/auth', auth);
+router.use('/token', token);
 
 module.exports = router;

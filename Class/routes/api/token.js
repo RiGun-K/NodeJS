@@ -4,10 +4,18 @@ const router = express.Router();
 const jwt = requrie('jsonwebtoken');
 const teacherDB = requrie('../../models/teachers');
 
-router.post('/sigin', (req, res)=>{
+router.post('/signin', async (req, res)=>{
     const {teacherId, password} = req.body;
-    if(!teacherID || !password) {
-        return res.status(400);
+    if(!teacherId || !password) {
+        return res.status(400).end();
+    }
+    const teacher = await teacherDB.getTeacherById(teacherId);
+    console.log(teacher)
+    if(teacher) {
+        const secret = req.app.get('jwt-secret');
+        const navload={
+            
+        }
     }
 });
 
