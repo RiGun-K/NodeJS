@@ -1,17 +1,21 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <Header />  <!-- Header 파일을 불러다 씀 -->
+    <div id="content" class="content">
+      <router-view></router-view>
+    </div>
   </div>
 </template>
 
+<!-- components에 Header를 찾아서 Header를 import해서 Header.vue를 띄운다 -->
+
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Header from './components/layout/Header.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    Header,
   }
 }
 </script>
