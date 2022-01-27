@@ -13,5 +13,6 @@ export default [
         writer: '조이',
         title: '레드벨벳',
         content: '1'
-    }
+    },
+    
 ]
