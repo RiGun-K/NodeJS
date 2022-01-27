@@ -1,5 +1,6 @@
 <template>
    <div>
+       <h1>게시판</h1>
        <table>
         <tr>
             <td>글쓴이</td>
@@ -12,7 +13,7 @@
             <td>{{ item.content }}</td>
         </tr>
        </table>
-       <button @click="write">글쓰기</button>
+       <b-button variant="primary" @click="write">글쓰기</b-button>
    </div> 
 </template>
 
