@@ -15,7 +15,7 @@ export default new Router({
       component: Read
     },
     {
-      path: '/create',
+      path: '/create/:contentId?',        // ?를 넣어서 파라미터를 받는다. (/create 보여짐)
       name: 'Create',
       component: Create
     },
