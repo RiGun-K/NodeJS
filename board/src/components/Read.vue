@@ -7,10 +7,10 @@
             <td>제목</td>
             <td>내용</td>
         </tr>
-        <tr :key="item" v-for="item in data">   
-            <td>{{ item.writer }}</td>
-            <td>{{ item.title }}</td>
-            <td>{{ item.content }}</td>
+        <tr :key="index" v-for="(value,index) in data" @click="detail(index)">    
+            <td>{{ value.writer }}</td>
+            <td>{{ value.title }}</td>
+            <td>{{ value.content }}</td>
         </tr>
        </table>
        <b-button variant="primary" @click="write">글쓰기</b-button>
@@ -31,6 +31,14 @@ export default {
         write() {
             this.$router.push({     // URL 이동
                 path: 'create'
+            })
+        },
+        detail(index) {
+            this.$router.push({     
+                name: 'Detail',     // params로 넘겨줄때는 name으로 작성해야함 
+                params: {
+                    contentId: index    // 0번부터 차례대로 
+                }
             })
         }
     }
