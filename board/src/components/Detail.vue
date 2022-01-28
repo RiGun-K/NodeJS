@@ -34,7 +34,7 @@ export default {
             this.$router.push({
                 name: "Create",
                 params: {
-                    contentId: index
+                    contentId: this.index               // index => this.index 로 수정  
                 }
             })
         }

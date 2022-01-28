@@ -7,9 +7,13 @@
         <br>
         <b-form-textarea v-model="content" placeholder="내용"></b-form-textarea>
         <br>
-        <b-button variant="primary" @click="write">작성</b-button>
+        <b-button variant="primary" @click="index !== undefined ? update() : write()">{{index !== undefined ? "수정" : "작성"}}</b-button>
     </div>
 </template>
+
+<!-- $route  : 현재 url , 
+     $router : 라우팅 관련 조작 객체
+--> 
 
 <script>
 import data from '@/data'
@@ -17,11 +21,13 @@ import data from '@/data'
 export default {
     name: 'Create',
     data() {
+        const index = this.$route.params.contentId;       // $router 가 아님
         return {
             data: data,
-            writer: "",
-            title: "",
-            content: ""
+            index: index,
+            writer: index !== undefined ? data[index].writer : "",  // index가 빈 값아니면 불러오기 
+            title: index !== undefined ? data[index].title : "",
+            content: index !== undefined ? data[index].content : ""
         }
     },
     methods: {
@@ -31,6 +37,14 @@ export default {
                 title: this.title,
                 content: this.content
             })
+            this.$router.push({
+                path: '/'
+            })
+        },
+        update() {
+            data[this.index].writer = this.writer
+            data[this.index].title = this.title
+            data[this.index].content = this.content
             this.$router.push({
                 path: '/'
             })
