@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import data from '@/data'       // 1) data 불러오기
+import data from '@/data/board'       // 1) data 불러오기
 
 export default {
     name: 'Detail',

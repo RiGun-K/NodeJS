@@ -18,7 +18,7 @@
 </template>
 
 <script>
-import data from '@/data'   // data의 index.js의 배열을 불러오기 위해서 먼저 선언
+import data from '@/data/board'   // data의 index.js의 배열을 불러오기 위해서 먼저 선언
 
 export default {
     name: 'Read',           // 이름 선언

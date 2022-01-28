@@ -16,7 +16,7 @@
 --> 
 
 <script>
-import data from '@/data'
+import data from '@/data/board'
 
 export default {
     name: 'Create',
