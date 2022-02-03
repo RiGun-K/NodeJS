@@ -1,7 +1,7 @@
 <template>
   <div>
-    <b-table striped hover :items="items" :fields="fields"></b-table>
-    <!-- fields 속성 넣기 (보여주고싶은 부분만 보이게) -->
+    <b-table striped hover :items="items" :fields="fields" @row-clicked="rowClick"></b-table>
+    <!-- fields 속성 넣기 (보여주고싶은 부분만 보이게) , rowClick 속성 넣기 ( 열 클릭시 이벤트 처리 ) -->
   </div>
 </template>
 
@@ -9,6 +9,7 @@
 import data from '@/data'   // import로 데이터 불러오기 
 
 let items = data.Content.sort((a,b) => {return b.content_id - a.content_id}) // 내림차순 정렬
+items = items.map(contentItem => {return {...contentItem, user_name: data.User.filter(userItem => userItem.user_id === contentItem.user_id)[0].name }})
 
 export default {
   name: 'Board',
@@ -27,8 +28,19 @@ export default {
           key: 'created_at',
           label: '등록일'
         },
+        {
+          key: 'user_name',
+          label: '글쓴이'
+        }
       ],
       items: items
+    }
+  },
+  methods: {
+    rowClick(item, index, e) {
+      this.$router.push({
+        path: `/board/free/detail/${item.content_id}`
+      })
     }
   }
 }
