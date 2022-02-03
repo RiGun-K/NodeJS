@@ -8,6 +8,8 @@
 <script>
 import data from '@/data'   // import로 데이터 불러오기 
 
+let items = data.Content.sort((a,b) => {return b.content_id - a.content_id}) // 내림차순 정렬
+
 export default {
   name: 'Board',
   data() {
@@ -26,7 +28,7 @@ export default {
           label: '등록일'
         },
       ],
-      items: data.Content
+      items: items
     }
   }
 }
