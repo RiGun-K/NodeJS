@@ -8,7 +8,7 @@
             <b-collapse id="nav-collapse" is-nav>
                 <b-navbar-nav>
                     <b-nav-item href="#">공지사항</b-nav-item>
-                    <b-nav-item href="#">자유게시판</b-nav-item>
+                    <b-nav-item href="/board/free">자유게시판</b-nav-item>
                     <b-nav-item href="#">구인구직</b-nav-item>
                 </b-navbar-nav>
             </b-collapse>
