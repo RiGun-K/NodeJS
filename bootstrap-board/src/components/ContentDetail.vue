@@ -27,7 +27,9 @@
         <b-button variant="success" @click="deleteData">삭제</b-button>
       </div>
       <div class="content-detail-comment">
-        덧글
+        <!-- '댓글' 대신 CommentList.vue 불러오기 + props로 contentId 받아오기 --> 
+        <!-- CL(자식 컴포넌트) 가 contentId의 정보를 CD(부모)에 있는 contentId를 받아온다 -->
+        <CommentList :contentId="contentId"/>
       </div>
     </b-card>
   </div>
@@ -35,8 +37,10 @@
 
 <script>
 import data from "@/data";
+import CommentList from './CommentList.vue';
 
 export default {
+  components: { CommentList },  // vue파일 컴포넌트에 추가 
   name: "ContentDetail",
   data() {
     const contentId = Number(this.$route.params.contentId);
