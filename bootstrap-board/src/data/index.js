@@ -2,7 +2,7 @@ export default {
     User: [
       {
         user_id: 1,
-        name: 'lelana',
+        name: '김리건',
         created_at: '2018-09-11 11:42:11'
       },
       {
