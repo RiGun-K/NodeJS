@@ -2,6 +2,7 @@
   <div>
     <b-table striped hover :items="items" :fields="fields" @row-clicked="rowClick"></b-table>
     <!-- fields 속성 넣기 (보여주고싶은 부분만 보이게) , rowClick 속성 넣기 ( 열 클릭시 이벤트 처리 ) -->
+    <b-button pill variant="primary" @click="writeContent">글쓰기</b-button>
   </div>
 </template>
 
@@ -40,6 +41,11 @@ export default {
     rowClick(item, index, e) {
       this.$router.push({
         path: `/board/free/detail/${item.content_id}`
+      })
+    },
+    writeContent() {
+      this.$router.push({
+        path: '/board/free/create'
       })
     }
   }
