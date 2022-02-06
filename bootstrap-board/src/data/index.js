@@ -12,7 +12,7 @@ export default {
       },
       {
         user_id: 3,
-        name: '조이',
+        name: '사나',
         created_at: '2018-09-11 11:42:11'
       },
     ],
