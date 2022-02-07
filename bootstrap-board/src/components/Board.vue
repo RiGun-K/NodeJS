@@ -2,6 +2,7 @@
   <div>
     <b-table striped hover :items="items" :fields="fields" @row-clicked="rowClick"></b-table>
     <!-- fields 속성 넣기 (보여주고싶은 부분만 보이게) , rowClick 속성 넣기 ( 열 클릭시 이벤트 처리 ) -->
+    <b-pagination :per-page="perPage" :current-page="currentPage" v-model="currentPage" pills :total-rows="rows"></b-pagination>
     <b-button pill variant="primary" @click="writeContent">글쓰기</b-button>
   </div>
 </template>
@@ -16,6 +17,8 @@ export default {
     items = items.map(contentItem => {return {...contentItem, user_name: data.User.filter(userItem => userItem.user_id === contentItem.user_id)[0].name }})
 
     return {
+      currentPage: 1,
+      perPage: 10,
       fields: [
         {
           key: 'content_id',
@@ -47,6 +50,11 @@ export default {
       this.$router.push({
         path: '/board/free/create'
       })
+    }
+  },
+  computed: {
+    rows() {
+      return this.items.length
     }
   }
 }
