@@ -74,7 +74,7 @@ export default {
 <style scoped>
 .content-detail-content-info {
   border: 1px solid black;
-  display: flex;
+  display: flex;  
   justify-content: space-between;
 }
 .content-detail-content-info-left {
