@@ -1,6 +1,6 @@
 const http = require('http')
 // http 는 객체임 , Node로 작업시 대부분 require 
-// export는 하나하나 외부로 나가는 public 느낌
+// export는 하나하나 외부로 나가는 public 느낌 ! 
 
 const server = http.createServer((req, res)=> {
     res.end('Hello World, i am RiGun-K')
