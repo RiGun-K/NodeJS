@@ -1,7 +1,7 @@
 <template>
     <div>
         <h1>To Do 리스트</h1>
-        <base-input-text v-model="newTodoText" placeholder="New Todo" @keydown.enter="addTodo"/>
+        <BaseInputText v-model="newTodoText" placeholder="New Todo" @keydown.enter="addTodo"/> <!-- v-model = 데이터 바인딩 ( 입력값을 저장 등으로 바인딩 ) -->
         <ul v-if="todos.length">
             <TodoListItem v-for="todo in todos" :key="todo.id" :todo="todo" @remove="removeTodo"/>
         </ul>

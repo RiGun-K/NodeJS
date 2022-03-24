@@ -4,7 +4,7 @@
 
 <script>
 export default {
-    props: {
+    props: {    // 부모 -> 자식 컴포넌트로 데이터를 전달하는 방식
         value: {
             type: String, default: '',
         }
