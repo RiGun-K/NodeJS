@@ -1,5 +1,6 @@
 <template>
     <div>
+        <h1>To Do 리스트</h1>
         <base-input-text v-model="newTodoText" placeholder="New Todo" @keydown.enter="addTodo"/>
         <ul v-if="todos.length">
             <TodoListItem v-for="todo in todos" :key="todo.id" :todo="todo" @remove="removeTodo"/>
